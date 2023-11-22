@@ -1,0 +1,63 @@
+[gd_scene load_steps=13 format=3 uid="uid://dvn3oe0hc841t"]
+
+[ext_resource type="Script" path="res://player/player.gd" id="1_pha2j"]
+[ext_resource type="Texture2D" uid="uid://crr4dm4qew3s0" path="res://assets/caminar/cam_1.png" id="1_y7nxk"]
+[ext_resource type="Texture2D" uid="uid://2vsmv8avp111" path="res://assets/caminar/cam_2.png" id="2_puwnc"]
+[ext_resource type="Texture2D" uid="uid://d1fpmheeghti6" path="res://assets/caminar/cam_3.png" id="3_7ngbg"]
+[ext_resource type="Texture2D" uid="uid://x4u83g7ng7b" path="res://assets/caminar/cam_4.png" id="4_8mtwh"]
+[ext_resource type="Texture2D" uid="uid://clurm1u0smvvi" path="res://assets/caminar/cam_5.png" id="5_g3u08"]
+[ext_resource type="Texture2D" uid="uid://b33664v5nkfe" path="res://assets/caminar/cam_6.png" id="6_7u4ag"]
+[ext_resource type="Texture2D" uid="uid://bs74sh4ebct7v" path="res://assets/caminar/cam_7.png" id="7_85lg7"]
+[ext_resource type="Texture2D" uid="uid://bskshu7rhn70j" path="res://assets/caminar/cam_8.png" id="8_dylyf"]
+[ext_resource type="Texture2D" uid="uid://dawhaucqyhcxo" path="res://assets/caminar/cam_9.png" id="9_4i8hh"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_j5yvg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_y7nxk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_puwnc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_7ngbg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_8mtwh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_g3u08")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_7u4ag")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_85lg7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_dylyf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_4i8hh")
+}],
+"loop": true,
+"name": &"caminar",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qqbig"]
+radius = 23.0
+height = 120.0
+
+[node name="player" type="Area2D"]
+script = ExtResource("1_pha2j")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_j5yvg")
+animation = &"caminar"
+frame = 3
+frame_progress = 0.714614
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_qqbig")

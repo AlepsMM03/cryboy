@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://dwwun8n8h2eg2"]
+
+[ext_resource type="Texture2D" uid="uid://biss08u54o2el" path="res://assets/bullet/bullet.png" id="1_ongrv"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pvca1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ongrv")
+}],
+"loop": true,
+"name": &"bullet",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g402u"]
+size = Vector2(93, 39)
+
+[node name="bullet" type="Area2D" groups=["bullet"]]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(581.875, 253.75)
+scale = Vector2(0.151875, 0.135417)
+sprite_frames = SubResource("SpriteFrames_pvca1")
+animation = &"bullet"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(584, 238)
+shape = SubResource("RectangleShape2D_g402u")

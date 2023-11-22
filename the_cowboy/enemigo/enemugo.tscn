@@ -1,0 +1,59 @@
+[gd_scene load_steps=12 format=3 uid="uid://cgt6mvfp7qwem"]
+
+[ext_resource type="Script" path="res://enemigo/enemugo.gd" id="1_jnv8l"]
+[ext_resource type="Texture2D" uid="uid://b4qu32i8qqvbq" path="res://assets/enemigo/came_1.png" id="1_nml1w"]
+[ext_resource type="Texture2D" uid="uid://da54p1tbkj6vy" path="res://assets/enemigo/came_2.png" id="2_yr68n"]
+[ext_resource type="Texture2D" uid="uid://f8kh5ofxwyqo" path="res://assets/enemigo/came_3.png" id="3_0fn1o"]
+[ext_resource type="Texture2D" uid="uid://cembn6j0i055v" path="res://assets/enemigo/came_4.png" id="4_thf05"]
+[ext_resource type="Texture2D" uid="uid://bjmv7etex8xpy" path="res://assets/enemigo/came_5.png" id="5_h66sk"]
+[ext_resource type="Texture2D" uid="uid://d0qgmbt3xi0s1" path="res://assets/enemigo/came_6.png" id="6_nbang"]
+[ext_resource type="Texture2D" uid="uid://brefxqp7f0cc7" path="res://assets/enemigo/came_7.png" id="7_67kgm"]
+[ext_resource type="Texture2D" uid="uid://cwo4mwl42lqtn" path="res://assets/enemigo/came_8.png" id="8_b3je4"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nys0u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_nml1w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_yr68n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_0fn1o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_thf05")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_h66sk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_nbang")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_67kgm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_b3je4")
+}],
+"loop": true,
+"name": &"caminar",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_v3vas"]
+radius = 22.0
+height = 104.0
+
+[node name="enemugo" type="Area2D" groups=["enemigo"]]
+script = ExtResource("1_jnv8l")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-2, 2.86102e-06)
+scale = Vector2(0.433594, 0.412393)
+sprite_frames = SubResource("SpriteFrames_nys0u")
+animation = &"caminar"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_v3vas")

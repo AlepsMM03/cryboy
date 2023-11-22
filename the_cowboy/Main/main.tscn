@@ -1,0 +1,73 @@
+[gd_scene load_steps=8 format=3 uid="uid://d3547wg61ymsd"]
+
+[ext_resource type="PackedScene" uid="uid://dvn3oe0hc841t" path="res://player/player.tscn" id="1_385vl"]
+[ext_resource type="Script" path="res://Main/main.gd" id="1_pg10y"]
+[ext_resource type="PackedScene" uid="uid://cgt6mvfp7qwem" path="res://enemigo/enemugo.tscn" id="2_4idlf"]
+[ext_resource type="Script" path="res://Main/HUD.gd" id="3_3u7gl"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_687sr"]
+font_size = 35
+
+[sub_resource type="LabelSettings" id="LabelSettings_3haeq"]
+font_size = 28
+
+[sub_resource type="LabelSettings" id="LabelSettings_33pb3"]
+line_spacing = 20.0
+font_size = 79
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_pg10y")
+
+[node name="player" parent="." instance=ExtResource("1_385vl")]
+position = Vector2(433, 200)
+
+[node name="contenedor" type="Node" parent="."]
+
+[node name="HUD" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("3_3u7gl")
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD"]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 80.0
+offset_right = 893.0
+offset_bottom = 204.0
+
+[node name="LblScore" type="Label" parent="HUD/MarginContainer"]
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_687sr")
+
+[node name="LblTimer" type="Label" parent="HUD/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "0"
+label_settings = SubResource("LabelSettings_3haeq")
+
+[node name="LblGameOver" type="Label" parent="HUD"]
+layout_mode = 0
+offset_left = 205.0
+offset_top = 282.0
+offset_right = 658.0
+offset_bottom = 418.0
+text = "GAME OVER"
+label_settings = SubResource("LabelSettings_33pb3")
+
+[node name="GameTimer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[node name="MonedaTimer" type="Timer" parent="."]
+
+[node name="enemugo" parent="." instance=ExtResource("2_4idlf")]
+position = Vector2(4, 4)
+
+[connection signal="area_entered" from="player" to="." method="_on_player_area_entered"]
+[connection signal="hurt" from="player" to="." method="_on_player_hurt"]
+[connection signal="picked" from="player" to="." method="_on_player_picked"]
+[connection signal="timeout" from="GameTimer" to="." method="_on_game_timer_timeout"]
+[connection signal="timeout" from="MonedaTimer" to="." method="_on_moneda_timer_timeout"]

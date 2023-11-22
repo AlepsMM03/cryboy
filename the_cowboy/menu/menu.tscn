@@ -1,0 +1,48 @@
+[gd_scene load_steps=3 format=3 uid="uid://cmpkb75bva3mw"]
+
+[ext_resource type="Script" path="res://menu/Button.gd" id="1_0waa4"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_dxvt3"]
+font_size = 31
+
+[node name="menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.645
+anchor_bottom = 0.55
+offset_left = -94.0
+offset_top = -77.0
+offset_right = -33.5001
+offset_bottom = -81.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "BIENVENIDO A MI JUEGO"
+label_settings = SubResource("LabelSettings_dxvt3")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "J U G A R"
+script = ExtResource("1_0waa4")
+
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
